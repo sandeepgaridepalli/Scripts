@@ -1,0 +1,1 @@
+$tempfolder=$env:TEMP if(![System.IO.Directory]::Exists('c:\salt')){ wget https://repo.saltstack.com/windows/Salt-Minion-2018.3.2-Py2-AMD64-Setup.exe -OutFile $tempfolder\saltminion.exe Start-Process -FilePath $tempfolder'\saltminion.exe' -ArgumentList '/S','/master=<masteripaddress>' -WorkingDirectory 'c:\' } else{ echo "nothing to do - Salt is already installed" }
